@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Pedido {
     private Long id;
-    private Mesa mesa;
+    private Long idMesa;
     private String status;
     private String data;
     private List<Prato> pratos;
@@ -13,9 +13,9 @@ public class Pedido {
 
     public Pedido() {}
 
-    public Pedido(Long id, Mesa mesa, String status, String data, List<Prato> pratos, Double total) {
+    public Pedido(Long id, Long idMesa, String status, String data, List<Prato> pratos, Double total) {
         this.id = id;
-        this.mesa = mesa;
+        this.idMesa = Pedido.this.idMesa;
         this.status = status;
         this.data = data;
         this.pratos = pratos;
@@ -26,8 +26,8 @@ public class Pedido {
         return id;
     }
 
-    public Mesa getMesa() {
-        return mesa;
+    public Long getIdMesa() {
+        return idMesa;
     }
 
     public String getStatus() {
