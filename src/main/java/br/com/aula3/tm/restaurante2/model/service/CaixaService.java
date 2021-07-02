@@ -51,8 +51,7 @@ public class CaixaService {
             data = pedidoDTO.getData();
         }
 
-        Caixa caixa = new Caixa(data, total);
-        caixaRepository.addRegistro(caixa);
+        caixaRepository.addRegistro(new Caixa(data, total));
 
         List<PedidoForm> pedidoForms = new ArrayList<>(
                 Arrays.asList(

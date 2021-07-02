@@ -48,7 +48,9 @@ public class RestauranteService {
     }
 
     public void updatedMesa(Mesa mesa) {
-        restauranteRepository.updateMesa(mesa);
+        if(mesa.getPedidos().size() > 0) {
+            restauranteRepository.updateMesa(mesa);
+        }
     }
 
     public MesaDTO deleteMesa(long id) {

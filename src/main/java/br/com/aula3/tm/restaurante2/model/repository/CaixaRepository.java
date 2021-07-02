@@ -16,7 +16,7 @@ import java.util.List;
 
 @Repository
 public class CaixaRepository {
-    private static final File FILE = new File("restaurante.json");
+    private static final File FILE = new File("caixa.json");
 
     @Autowired
     private ObjectMapper mapper;
@@ -51,6 +51,7 @@ public class CaixaRepository {
     public void addRegistro(Caixa caixa) {
         try {
             List<Caixa> registros = getAll();
+            System.out.println(caixa.getSaldo());
             registros.add(caixa);
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(FILE)));
             mapper.writeValue(out, registros);
