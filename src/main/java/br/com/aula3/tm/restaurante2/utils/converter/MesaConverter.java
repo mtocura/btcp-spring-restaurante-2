@@ -5,6 +5,7 @@ import br.com.aula3.tm.restaurante2.form.MesaForm;
 import br.com.aula3.tm.restaurante2.form.PedidoForm;
 import br.com.aula3.tm.restaurante2.form.PratoForm;
 import br.com.aula3.tm.restaurante2.model.entity.Mesa;
+import br.com.aula3.tm.restaurante2.model.entity.PedidoStatus;
 import br.com.aula3.tm.restaurante2.utils.Id;
 
 import java.util.ArrayList;
@@ -24,6 +25,14 @@ public class MesaConverter {
         return new Mesa(
                 id,
                 PedidoConverter.pedidoFormToEntity(mesaForm.getPedidos(), id),
+                total(mesaForm.getPedidos())
+        );
+    }
+
+    public static Mesa mesaFormToEntity(MesaForm mesaForm, long id, PedidoStatus pedidoStatus, String data) {
+        return new Mesa(
+                id,
+                PedidoConverter.pedidoFormToEntity(mesaForm.getPedidos(), id, pedidoStatus, data),
                 total(mesaForm.getPedidos())
         );
     }

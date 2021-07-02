@@ -24,11 +24,32 @@ public class PedidoConverter {
         );
     }
 
+    public static Pedido pedidoFormToEntity(PedidoForm pedidoForm, long idMesa, PedidoStatus pedidoStatus, String data) {
+        return new Pedido(
+                Id.genrateIdPedido(),
+                idMesa,
+                pedidoStatus,
+                data,
+                PratoConverter.pratoFormToEntity(pedidoForm.getPratos()),
+                totalPedido(pedidoForm.getPratos())
+        );
+    }
+
     public static List<Pedido> pedidoFormToEntity(List<PedidoForm> pedidoForms, long idMesa) {
         List<Pedido> pedidos = new ArrayList<>();
 
         for (PedidoForm pedidoForm : pedidoForms) {
             pedidos.add(pedidoFormToEntity(pedidoForm, idMesa));
+        }
+
+        return pedidos;
+    }
+
+    public static List<Pedido> pedidoFormToEntity(List<PedidoForm> pedidoForms, long idMesa, PedidoStatus pedidoStatus, String data) {
+        List<Pedido> pedidos = new ArrayList<>();
+
+        for (PedidoForm pedidoForm : pedidoForms) {
+            pedidos.add(pedidoFormToEntity(pedidoForm, idMesa, pedidoStatus, data));
         }
 
         return pedidos;
