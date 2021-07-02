@@ -7,6 +7,8 @@ public class Mesa {
     private List<Pedido> pedidos;
     private Double valorTotal;
 
+    public Mesa() {}
+
     public Mesa(Long id, List<Pedido> pedidos, Double valorTotal) {
         this.id = id;
         this.pedidos = pedidos;
@@ -17,23 +19,11 @@ public class Mesa {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public List<Pedido> getPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
     public Double getValorTotal() {
         return valorTotal;
-    }
-
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
     }
 }
