@@ -48,6 +48,12 @@ public class RestauranteService {
     }
 
     public MesaDTO deleteMesa(long id) {
-       return MesaConverter.mesaEntityToDTO(restauranteRepository.deleteMesa(id));
+        Mesa mesa = restauranteRepository.deleteMesa(id);
+
+        if(mesa == null) {
+            return null;
+        }
+        
+       return MesaConverter.mesaEntityToDTO(mesa);
     }
 }
