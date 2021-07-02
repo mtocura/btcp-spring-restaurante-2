@@ -53,7 +53,7 @@ public class RestauranteService {
         if(mesa == null) {
             return null;
         }
-        
+
        return MesaConverter.mesaEntityToDTO(mesa);
     }
 }

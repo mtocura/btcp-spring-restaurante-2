@@ -42,8 +42,9 @@ public class RestauranteController {
         return ResponseEntity.ok(pedidos);
     }
 
-    @GetMapping("/pedidos/{data}")
-    public ResponseEntity<?> getPedidosData(@PathVariable String data) {
+    @GetMapping("/pedidos/{dia}/{mes}/{ano}")
+    public ResponseEntity<?> getPedidosData(@PathVariable String dia, @PathVariable String mes, @PathVariable String ano) {
+        String data = dia + "/" + mes + "/" + ano;
         List<PedidoDTO> pedidos = restauranteService.getPedidosData(data);
 
         if(pedidos == null) {
