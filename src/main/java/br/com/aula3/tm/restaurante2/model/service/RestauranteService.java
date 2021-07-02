@@ -47,6 +47,10 @@ public class RestauranteService {
         restauranteRepository.updateMesa(mesa);
     }
 
+    public void updatedMesa(Mesa mesa) {
+        restauranteRepository.updateMesa(mesa);
+    }
+
     public MesaDTO deleteMesa(long id) {
         Mesa mesa = restauranteRepository.deleteMesa(id);
 
