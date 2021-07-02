@@ -5,7 +5,7 @@
 Este repositório contém a melhoria da api de restaurante presente no repositório: https://github.com/mtocura/btcp-spring-restaurante
 
 
-- POST ```` /aula2/tt/mesas ````
+- POST ```` /aula3/tt/mesas ````
     - Cria uma mesa
     - body request
     ````
@@ -45,7 +45,7 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
     - retorna o path onde foi criado o registro
 
 
-- GET ````` /aula2/tt/mesas `````
+- GET ````` /aula3/tt/mesas `````
     - retorna todas as mesas registradas
     - body response:
     ````
@@ -124,7 +124,7 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
     ````
 
 
-- GET ```` /aula2/tt/mesas/{id} ````
+- GET ```` /aula3/tt/mesas/{id} ````
     - retorna todos os pedidos da mesa juntamente com o valor total
     - body response:
     ````
@@ -149,7 +149,7 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
     ]
     ````
 
-- GET ```` /aula2/tt/mesas/{dia}/{mes}/{ano} ````
+- GET ```` /aula3/tt/mesas/{dia}/{mes}/{ano} ````
     - retorna todos os pedidos de uma data
     - body response:
     ````
@@ -175,7 +175,7 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
     ````
 
 
-- GET ```` /aula2/tt/mesas/{id}/checkout ````
+- GET ```` /aula3/tt/mesas/{id}/checkout ````
     - fecha a conta da mesa
     - limpa os pedidos da mesa
     - adiciona o valor total no saldo do caixa
@@ -191,7 +191,7 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
     ]
     ````
 
-- GET ````/aula2/tt/caixa ````
+- GET ````/aula3/tt/caixa ````
     - retorna o saldo do caixa
     - body response:
     `````
@@ -204,7 +204,7 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
     ]
     `````
 
-- GET ````/aula2/tt/caixa/{dia}/{mes}/{ano} ````
+- GET ````/aula3/tt/caixa/{dia}/{mes}/{ano} ````
     - retorna um array com todos os registros de saldo do caixa de uma data
     - body response:
     `````
@@ -216,3 +216,52 @@ Este repositório contém a melhoria da api de restaurante presente no repositó
         }
     ]
     `````
+  
+- PUT ```` /aula3/tt/{id} ````
+    - atualiza o registro de uma mesa específico
+    - body request
+    ```
+    {
+        "pedidos": [
+            {
+                "pratos": [
+                    {
+                        "preco": 20.50,
+                        "descricao": "Virada Paulista",
+                        "quantidade": 1
+                    },
+                    {
+                        "preco": 16.50,
+                        "descricao": "Bolo de Chocolate",
+                        "quantidade": 1
+                    }
+                ]
+            },
+        ]
+    }
+    ```
+  
+- DELETE ``` /aula3/tt/{id} ```
+    - exclui o registro de uma determinada mesa 
+    - caso ele exista ele será retornado no body
+    - body response
+    ```
+    {
+        "pedidos": [
+            {
+                "pratos": [
+                    {
+                        "preco": 20.50,
+                        "descricao": "Virada Paulista",
+                        "quantidade": 1
+                    },
+                    {
+                        "preco": 16.50,
+                        "descricao": "Bolo de Chocolate",
+                        "quantidade": 1
+                    }
+                ]
+            },
+        ]
+    }
+    ```
