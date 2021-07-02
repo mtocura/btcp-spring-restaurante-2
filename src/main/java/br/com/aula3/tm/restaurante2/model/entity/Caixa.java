@@ -12,7 +12,7 @@ public class Caixa {
     public Caixa(String data, Double valor) {
         this.data = data;
         this.valor = valor;
-        saldo = 0.0;
+        saldo += valor;
     }
 
     public String getData() {
