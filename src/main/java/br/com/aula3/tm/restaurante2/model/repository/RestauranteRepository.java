@@ -79,12 +79,12 @@ public class RestauranteRepository {
         }
     }
 
-    public void updateMesa(Mesa mesa) {
+    public void updateMesa(Mesa mesa, long id) {
         try {
             List<Mesa> mesas = getAll();
 
-            Optional<Mesa> mesaOptional = mesas.stream().filter(m -> m.getId() == mesa.getId()).findFirst();
-            List<Mesa> updatedMesas = mesas.stream().filter(m -> m.getId() != mesa.getId()).collect(Collectors.toList());
+            Optional<Mesa> mesaOptional = mesas.stream().filter(m -> m.getId() == id).findFirst();
+            List<Mesa> updatedMesas = mesas.stream().filter(m -> m.getId() != id).collect(Collectors.toList());
 
             if(mesaOptional.isPresent()) {
                 mesaOptional.get().setPedidos(mesa.getPedidos());
@@ -103,21 +103,31 @@ public class RestauranteRepository {
         }
     }
 
-    public void deleteMesa(Mesa mesa) {
+    public Mesa deleteMesa(long id) {
         try {
             List<Mesa> mesas = getAll();
 
-            List<Mesa> updatedMesas = mesas.stream().filter(m -> m.getId() != mesa.getId()).collect(Collectors.toList());
+            Optional<Mesa> mesaOptional = mesas.stream().filter(m -> m.getId() == id).findFirst();
+            List<Mesa> updatedMesas = mesas.stream().filter(m -> m.getId() != id).collect(Collectors.toList());
 
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(FILE)));
             mapper.writeValue(out, updatedMesas);
             out.close();
+
+            if(mesaOptional.isPresent()) {
+                return mesaOptional.get();
+            }
+
+            return null;
         } catch (JsonGenerationException e) {
             e.printStackTrace();
+            return null;
         } catch (JsonMappingException e) {
             e.printStackTrace();
+            return null;
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
     }
 }
