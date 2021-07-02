@@ -23,6 +23,10 @@ public class Mesa {
         return pedidos;
     }
 
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     public Double getValorTotal() {
         return valorTotal;
     }
