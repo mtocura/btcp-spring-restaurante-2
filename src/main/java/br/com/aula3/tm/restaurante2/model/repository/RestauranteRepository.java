@@ -79,12 +79,12 @@ public class RestauranteRepository {
         }
     }
 
-    public void updateMesa(Mesa mesa, long id) {
+    public void updateMesa(Mesa mesa) {
         try {
             List<Mesa> mesas = getAll();
 
-            Optional<Mesa> mesaOptional = mesas.stream().filter(m -> m.getId() == id).findFirst();
-            List<Mesa> updatedMesas = mesas.stream().filter(m -> m.getId() != id).collect(Collectors.toList());
+            Optional<Mesa> mesaOptional = mesas.stream().filter(m -> m.getId() == mesa.getId()).findFirst();
+            List<Mesa> updatedMesas = mesas.stream().filter(m -> m.getId() != mesa.getId()).collect(Collectors.toList());
 
             if(mesaOptional.isPresent()) {
                 mesaOptional.get().setPedidos(mesa.getPedidos());

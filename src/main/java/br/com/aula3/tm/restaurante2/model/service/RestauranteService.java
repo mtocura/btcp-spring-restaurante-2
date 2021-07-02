@@ -43,8 +43,8 @@ public class RestauranteService {
     }
 
     public void updatedMesa(long id, MesaForm mesaForm) {
-        Mesa mesa = MesaConverter.mesaFormToEntity(mesaForm);
-        restauranteRepository.updateMesa(mesa, id);
+        Mesa mesa = MesaConverter.mesaFormToEntity(mesaForm, id);
+        restauranteRepository.updateMesa(mesa);
     }
 
     public MesaDTO deleteMesa(long id) {
