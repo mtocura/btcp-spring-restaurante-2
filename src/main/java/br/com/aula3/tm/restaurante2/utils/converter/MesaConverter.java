@@ -20,6 +20,14 @@ public class MesaConverter {
         );
     }
 
+    public static Mesa mesaFormToEntity(MesaForm mesaForm, long id) {
+        return new Mesa(
+                id,
+                PedidoConverter.pedidoFormToEntity(mesaForm.getPedidos(), id),
+                total(mesaForm.getPedidos())
+        );
+    }
+
     public static List<Mesa> mesaFormToEntity(List<MesaForm> mesaForms) {
         List<Mesa> mesas = new ArrayList<>();
 
