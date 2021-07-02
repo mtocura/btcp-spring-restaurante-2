@@ -63,6 +63,6 @@ public class CaixaService {
         );
         MesaForm mesaForm = new MesaForm(pedidoForms);
         Mesa mesa = MesaConverter.mesaFormToEntity(mesaForm, idMesa, PedidoStatus.FINALIZADO, data);
-        restauranteService.updatedMesa(mesa);        
+        restauranteService.updatedMesa(mesa);
     }
 }
