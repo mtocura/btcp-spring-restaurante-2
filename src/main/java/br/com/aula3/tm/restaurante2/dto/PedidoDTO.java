@@ -1,16 +1,18 @@
 package br.com.aula3.tm.restaurante2.dto;
 
+import br.com.aula3.tm.restaurante2.model.entity.PedidoStatus;
+
 import java.util.List;
 
 public class PedidoDTO {
     private List<PratoDTO> pratos;
-    private String status;
+    private PedidoStatus status;
     private String data;
     private Double totalPedido;
 
     public PedidoDTO() {}
 
-    public PedidoDTO(List<PratoDTO> pratos, String status, String data, Double totalPedido) {
+    public PedidoDTO(List<PratoDTO> pratos, PedidoStatus status, String data, Double totalPedido) {
         this.pratos = pratos;
         this.status = status;
         this.data = data;
@@ -21,7 +23,7 @@ public class PedidoDTO {
         return pratos;
     }
 
-    public String getStatus() {
+    public PedidoStatus getStatus() {
         return status;
     }
 

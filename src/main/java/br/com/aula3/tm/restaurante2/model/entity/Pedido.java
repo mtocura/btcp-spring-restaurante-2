@@ -6,14 +6,14 @@ import java.util.List;
 public class Pedido {
     private Long id;
     private Long idMesa;
-    private String status;
+    private PedidoStatus status;
     private String data;
     private List<Prato> pratos;
     private Double total;
 
     public Pedido() {}
 
-    public Pedido(Long id, Long idMesa, String status, String data, List<Prato> pratos, Double total) {
+    public Pedido(Long id, Long idMesa, PedidoStatus status, String data, List<Prato> pratos, Double total) {
         this.id = id;
         this.idMesa = Pedido.this.idMesa;
         this.status = status;
@@ -30,7 +30,7 @@ public class Pedido {
         return idMesa;
     }
 
-    public String getStatus() {
+    public PedidoStatus getStatus() {
         return status;
     }
 
